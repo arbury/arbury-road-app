@@ -22,6 +22,7 @@ export default class MyApp extends App {
         <Head>
           <title>{pageProps.title}</title>
           <link href="https://fonts.googleapis.com/css?family=EB+Garamond&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Crimson+Text&display=swap" rel="stylesheet" />
         </Head>
         <Component {...pageProps} />
       </>

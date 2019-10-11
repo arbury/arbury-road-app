@@ -1,4 +1,8 @@
 {
+  "alias": [
+    "arburian.com",
+    "arburyroad.com"
+  ],
   "build": {
     "env": {
       "CONTENTFUL_SPACE_ID": "@contentful_space_id",

@@ -1,49 +1,25 @@
-import { Pane, Heading, Paragraph, Image } from 'evergreen-ui'
-import formatDistance from 'date-fns/formatDistance'
-import { fetchBaseMetadata } from '../api'
+import { Link, Pane, Heading, Paragraph, Image } from 'evergreen-ui'
+import api from '../api'
+import PageStructure from '../components/page-structure'
+import PageHeader from '../components/page-header'
+import PostList from '../components/post-list'
 
 export default class extends React.Component {
   static async getInitialProps(ctx) {
-    const { name, description } = await fetchBaseMetadata()
-
-    return { name, description, title: name }
+    const { name, description } = await api.fetchBaseMetadata()
+    const posts = await api.fetchPosts()
+    return { name, description, title: name, posts }
   }
 
   render() {
-    const { name, description } = this.props
+    const { name, description, posts } = this.props
 
     return (
-      <>
-        <Pane
-          padding={40}
-          marginX="auto"
-          maxWidth={600}
-        >
+      <PageStructure>
+        <PageHeader name={name} description={description} />
 
-          <Pane
-            paddingBottom={30}
-            marginBottom={30}
-            borderBottom
-            width={600}
-          >
-            <Heading
-              marginBottom={24}
-              color="black"
-              fontSize={45}
-              fontFamily="EB Garamond"
-            >
-              {name}
-            </Heading>
-            <Heading
-              // color="#"
-              fontSize={28}
-              fontFamily="EB Garamond"
-            >
-              {description}
-            </Heading>
-          </Pane>
-        </Pane>
-      </>
+        <PostList posts={posts} />
+      </PageStructure>
     )
   }
 }
