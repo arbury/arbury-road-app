@@ -14,7 +14,7 @@
     "contentful": "^4.3.0",
     "date-fns": "^2.0.1",
     "evergreen-ui": "^4.18.3",
-    "next": "^9.0.5",
+    "next": "^9.3.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   }
